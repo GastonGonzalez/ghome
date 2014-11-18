@@ -3,7 +3,7 @@
   Author: Gaston Gonzalez
   Date  : 16 November 2014
   
-  A simple web server for controlling a sprinkler with 3 zones. Based on the Ethernet > WebServer
+  A simple web server for controlling a sprinkler with 3 zones. Based on the Examples > Ethernet > WebServer
   example by David A. Mellis and Tom Igoe.
  */
 #include <SPI.h>
@@ -18,7 +18,7 @@ IPAddress ip(192,168,1, 50);
 // Arduino COM pins. Uses a 1-based index
 int GSPRINKLER_COM[] = { 0, 7, 6, 5, 4 };
 int STARTUP_DELAY = 10000; // Startup delay: 10 seconds
-int DURATION = 30000;      // Station dueation: 30 seconds
+int DURATION = 30000;      // Station duration: 30 seconds
 int MAX_ZONES = 3;
 String currentLine = "";  // Buffer for client requests
 
@@ -32,7 +32,7 @@ void setup() {
 
   currentLine.reserve(256); // buffer
 
-  // Ensure that all relays are inactive at reset and initialize each pin sequence.
+  // Ensure that all relays are inactive at reset and initialize each pin in sequence.
   for (int i = 1; i <= 4; i++) {
       digitalWrite(GSPRINKLER_COM[i], LOW);
       pinMode(GSPRINKLER_COM[i], OUTPUT);
@@ -51,7 +51,7 @@ void setup() {
   Serial.println(Ethernet.localIP());
 }
 
-// From status as JSON
+// Generates a status response as JSON
 String getStatus() {
    String statusJson =  String("{");
    statusJson.concat("\"zones\":[");
@@ -108,9 +108,9 @@ void loop() {
         }
       }
     }
-    // give the web browser time to receive the data
+    // Give the web browser time to receive the data
     delay(1);
-    // close the connection:
+    // Close the connection:
     client.stop();
     Serial.println("client disonnected");
   }
