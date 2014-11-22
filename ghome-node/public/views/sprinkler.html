@@ -8,11 +8,13 @@
 
 <div class="btn-group-vertical btn-block" role="group">
 
-    <button class="btn btn-lg btn-primary" type="button">
-    Zone: 1 <span class="badge">off</span>
+    <button class="btn btn-lg btn-primary" type="button" ng-repeat="zone in zones">
+    Zone: {{zone.zone}} <span class="badge">{{zone.status}}</span>
     </button>
 
+<!--
     <button class="btn btn-lg btn-success" type="button">
     Zone: 2 <span class="badge">on</span>
     </button>
+  -->
 </div>
