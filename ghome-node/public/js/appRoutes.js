@@ -11,11 +11,6 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 		.when('/sprinkler', {
 			templateUrl: 'views/sprinkler.html',
 			controller: 'SprinklerController'
-		})
-
-		.when('/geeks', {
-			templateUrl: 'views/geek.html',
-			controller: 'GeekController'	
 		});
 
 	$locationProvider.html5Mode(true);
